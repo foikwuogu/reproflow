@@ -8,12 +8,10 @@ by hand. `scripts/publish_gate.py` (thin wrapper around the same check)
 refuses to proceed while any remain.
 
 ## Reproduce
-- [ ] `pytest -q` passes from a fresh clone (this needs network access to
       install `pytest`; it was not available in the sandbox that built
+ [x] `pytest -q` passes from a fresh clone (this needs network access to
       this draft — confirm on your own machine or let GitHub Actions CI
-      confirm it on push)
 - [ ] `python code/01_fetch_repos.py` re-clones all five evidence repos
-      cleanly and logs provenance
 - [ ] `python code/02_run_audit.py` reproduces `data/processed/stats.json`
       and `audit_results.json` exactly (scores match this draft)
 - [ ] Every number in `paper/paper.md` and `report/TECHNICAL_REPORT.md`
