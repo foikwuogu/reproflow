@@ -30,8 +30,8 @@ code/               numbered scripts that produce THIS project's own evidence:
 data/raw/           evidence_repos/ (cloned repos) + PROVENANCE.txt
 data/processed/     audit_results.json, stats.json, qa_report.txt
 docs/               CODEBOOK, LIMITATIONS, VERIFY_CHECKLIST, NEXT_STEPS
-paper/              paper.md (JOSS submission) + figures/
-report/             TECHNICAL_REPORT.md (fuller write-up, for Zenodo)
+paper/              paper.md (short-form summary, supplementary) + figures/
+report/             TECHNICAL_REPORT.md (primary write-up, for Zenodo)
 ```
 
 ## Install
@@ -79,8 +79,12 @@ what "exactly" was actually confirmed to mean).
 ## Headline numbers (from `data/processed/stats.json`; unverified — see status line)
 
 Across the five evidence repositories, mean compliance with the eight-
-criterion checklist is 0.66 (min 0.44 for crosswalk-lookup, max 0.94 for
-icsprio); reproflow's own self-audit scores 1.00 as of this draft. See
+criterion checklist — weighted toward provenance, tests, and CI, the
+mechanics that make a result independently reproducible (see
+`docs/CODEBOOK.md` for the weights and rationale) — is 0.57 (min 0.33 for
+crosswalk-lookup, max 0.89 for icsprio); reproflow's own self-audit scores
+1.00 as of this draft. The unweighted (flat eight-way) mean is 0.66, min
+0.44, max 0.94 — both figures are in `stats.json` for comparison. See
 `data/processed/qa_report.txt` for the full per-repository, per-criterion
 breakdown and `docs/LIMITATIONS.md` before citing any of it — every
 `partial` provenance score reflects a schema mismatch with this

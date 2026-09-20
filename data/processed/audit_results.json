@@ -3,7 +3,8 @@
     "repo_name": "icsprio",
     "repo_path": "/home/claude/reproflow/data/raw/evidence_repos/icsprio",
     "commit": "ef5ee3986a513eeeb6fd00e2d8a5c8f5825a5131",
-    "score": 0.938,
+    "score": 0.889,
+    "unweighted_score": 0.938,
     "criteria": [
       {
         "name": "packaging",
@@ -84,7 +85,8 @@
     "repo_name": "ong-ot-dataset",
     "repo_path": "/home/claude/reproflow/data/raw/evidence_repos/ong-ot-dataset",
     "commit": "acd2bda7505e914a0213bdb1782ea782e1d375be",
-    "score": 0.75,
+    "score": 0.667,
+    "unweighted_score": 0.75,
     "criteria": [
       {
         "name": "packaging",
@@ -161,7 +163,8 @@
     "repo_name": "pipeline-control-validation",
     "repo_path": "/home/claude/reproflow/data/raw/evidence_repos/pipeline-control-validation",
     "commit": "ed5855c9ef77139276f20ac8f7ae21893e4e0b57",
-    "score": 0.625,
+    "score": 0.5,
+    "unweighted_score": 0.625,
     "criteria": [
       {
         "name": "packaging",
@@ -233,7 +236,8 @@
     "repo_name": "pqc-ot-crosswalk",
     "repo_path": "/home/claude/reproflow/data/raw/evidence_repos/pqc-ot-crosswalk",
     "commit": "2e946a6e5fce7c0ded630af404512826e3b5234a",
-    "score": 0.562,
+    "score": 0.444,
+    "unweighted_score": 0.562,
     "criteria": [
       {
         "name": "packaging",
@@ -303,7 +307,8 @@
     "repo_name": "crosswalk-lookup",
     "repo_path": "/home/claude/reproflow/data/raw/evidence_repos/crosswalk-lookup",
     "commit": "60ea8199b74a9df78e49fa98bef3bf5265d072b3",
-    "score": 0.438,
+    "score": 0.333,
+    "unweighted_score": 0.438,
     "criteria": [
       {
         "name": "packaging",
@@ -372,6 +377,7 @@
     "repo_path": "/home/claude/reproflow",
     "commit": null,
     "score": 1.0,
+    "unweighted_score": 1.0,
     "criteria": [
       {
         "name": "packaging",

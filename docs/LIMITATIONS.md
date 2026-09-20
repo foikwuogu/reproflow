@@ -34,12 +34,21 @@ outrun what is honestly known here.
    in general fare against this checklist, and no claim of that kind
    should be drawn from it.
 
-4. **The compliance score is an unweighted mean.** All eight criteria
-   count equally toward a repository's score. A repository missing tests
-   entirely and a repository missing only `NEXT_STEPS.md` both lose the
-   same 0.125 from a perfect score, even though the two gaps are not
-   equally consequential for reproducibility. The score is a summary for
-   comparison across repositories, not a certification.
+4. **The compliance score is weighted, and the weights are the author's
+   own editorial judgment, not a derived or externally validated
+   metric.** The headline score (`docs/CODEBOOK.md` has the full table)
+   counts `provenance` (2.0), `tests` and `ci` (1.5 each) more heavily
+   than `packaging`/`stats_file`/`docs_set` (1.0 each) and
+   `citation_metadata`/`license` (0.5 each), on the reasoning that the
+   first group are the mechanics that let an independent third party
+   actually re-run and verify the work, while the second group is closer
+   to administrative or presentational. A reader who weighs these
+   criteria differently would get a different number from the same
+   underlying pass/partial/fail data — that data (and the flat unweighted
+   mean, reported alongside the weighted one everywhere it is quoted, as
+   `unweighted_score`) is in `data/processed/stats.json` for anyone who
+   wants to recompute with their own weights. Neither figure is a
+   certification.
 
 5. **Secret detection in the publish gate is deliberately conservative.**
    `reproflow.gate` matches a small set of high-confidence secret shapes
@@ -49,7 +58,10 @@ outrun what is honestly known here.
    a complete secret scan; a dedicated secret-scanning tool remains
    necessary for anything security-sensitive.
 
-6. **JOSS suitability is the author's read of the JOSS criteria, not a
-   pre-submission decision by JOSS editors.** Whether reproflow clears the
-   "substantial scholarly effort" bar is for JOSS reviewers to judge; this
-   project's paper makes the case but does not assume the outcome.
+6. **This release targets Zenodo only, not JOSS.** The author considered
+   JOSS and decided the "substantial scholarly effort" bar felt like a
+   stretch on reflection (`docs/VERIFY_CHECKLIST.md` "Judgment calls to
+   own"); `paper/paper.md` is kept as a short-form supplementary summary
+   in the same JOSS-style structure, not as an active submission draft. A
+   JOSS submission remains a possible future step (`docs/NEXT_STEPS.md`)
+   if that assessment changes.

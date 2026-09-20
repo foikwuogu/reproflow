@@ -30,7 +30,18 @@ date: 20 September 2026
 bibliography: paper.bib
 ---
 
-STATUS: DRAFT (unverified — see docs/VERIFY_CHECKLIST.md; not yet submitted to JOSS)
+STATUS: DRAFT (unverified — see docs/VERIFY_CHECKLIST.md)
+
+**Publication target:** this document is a short-form supplementary
+summary, not an active JOSS submission — the author decided on a
+Zenodo-only release (see `docs/VERIFY_CHECKLIST.md` "Judgment calls to
+own" and `docs/PUBLISH_GUIDE.md`). `report/TECHNICAL_REPORT.md` is the
+primary write-up filed with the Zenodo deposit; this file is included
+alongside it for a reader who wants the short version, and is written in
+the same JOSS-style structure only because that structure is a reasonable
+summary format, not because it will be submitted there. A JOSS submission
+remains a possible future step (see `docs/NEXT_STEPS.md`) if the author
+revisits that decision.
 
 # Summary
 
@@ -73,8 +84,11 @@ The five evidence repositories this project audits
 `pqc-ot-crosswalk`, `crosswalk-lookup`) are the motivating case: all five
 are the same author's own critical-infrastructure-security data
 pipelines, built over the same few months, and `reproflow audit` finds
-real, uneven compliance across them — a mean score of 0.66 across the
-five (`icsprio` 0.94 down to `crosswalk-lookup` 0.44) against the same
+real, uneven compliance across them — a weighted mean score of 0.57
+across the five (`icsprio` 0.89 down to `crosswalk-lookup` 0.33, weighted
+toward provenance, tests, and CI as the criteria most directly tied to
+independent reproducibility; the unweighted, flat eight-way mean is 0.66,
+`icsprio` 0.94 down to `crosswalk-lookup` 0.44) against the same
 eight-criterion checklist reproflow itself now scores 1.00 on. That
 spread, on one author's own work, is the case for a checklist that is
 checked by a program rather than remembered by a person.
@@ -102,8 +116,10 @@ repository, records its commit hash) and appends one line to a plain-text
 ledger; `reproflow.gate` walks a tree looking for the mechanical reasons a
 release is not ready and refuses to pass while any remain; `reproflow.audit`
 runs the same eight structural checks used throughout this paper and
-returns a machine-readable score plus a per-criterion explanation, so a
-`partial` result always says why (for instance, several evidence
+returns both a weighted score (provenance, tests, and CI counted more
+heavily, as the mechanics most directly tied to independent
+reproducibility — see `docs/CODEBOOK.md`) and the flat unweighted mean,
+plus a per-criterion explanation, so a `partial` result always says why (for instance, several evidence
 repositories log provenance in an internally consistent format that
 predates `reproflow`'s own ledger schema, which the audit reports as a
 schema mismatch rather than an absence of provenance tracking — see

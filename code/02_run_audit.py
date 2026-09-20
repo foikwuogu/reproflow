@@ -63,8 +63,13 @@ def main() -> None:
     (PROCESSED_DIR / "qa_report.txt").write_text(qa_text, encoding="utf-8")
 
     # --- stats.json: every number any document will quote ---
+    # "score" everywhere below is the weighted score (audit.CRITERION_WEIGHTS);
+    # unweighted_* fields are kept alongside for transparency / comparison,
+    # per docs/LIMITATIONS.md's discussion of the weighting choice.
     scores = {r.repo_name: r.score for r in all_results}
+    unweighted_scores = {r.repo_name: r.unweighted_score for r in all_results}
     evidence_scores = {r.repo_name: r.score for r in results}
+    unweighted_evidence_scores = {r.repo_name: r.unweighted_score for r in results}
     criterion_pass_counts = {}
     for crit_name in audit.CRITERIA:
         passes = sum(1 for r in results for c in r.criteria if c.name == crit_name and c.status == "pass")
@@ -73,12 +78,20 @@ def main() -> None:
     stats = {
         "n_evidence_repos": len(results),
         "evidence_repo_names": REPO_DISPLAY_ORDER,
+        "scoring_method": "weighted",
+        "criterion_weights": audit.CRITERION_WEIGHTS,
         "scores_by_repo": scores,
         "evidence_scores_by_repo": evidence_scores,
+        "unweighted_scores_by_repo": unweighted_scores,
+        "unweighted_evidence_scores_by_repo": unweighted_evidence_scores,
         "mean_evidence_score": round(sum(evidence_scores.values()) / len(evidence_scores), 3),
         "min_evidence_score": min(evidence_scores.values()),
         "max_evidence_score": max(evidence_scores.values()),
+        "mean_unweighted_evidence_score": round(
+            sum(unweighted_evidence_scores.values()) / len(unweighted_evidence_scores), 3
+        ),
         "reproflow_self_score": reproflow_result.score,
+        "reproflow_self_unweighted_score": reproflow_result.unweighted_score,
         "criterion_pass_counts_among_evidence_repos": criterion_pass_counts,
         "n_criteria": len(audit.CRITERIA),
         "criteria_list": audit.CRITERIA,

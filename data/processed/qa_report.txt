@@ -7,11 +7,12 @@ checklist in docs/CODEBOOK.md; does not execute each repo's own pipeline.
 
 | Repository | packaging | tests | ci | provenance | stats_file | docs_set | citation_metadata | license | Score |
 |---|---|---|---|---|---|---|---|---|---|
-| icsprio | PASS | PASS | PASS | PARTIAL | PASS | PASS | PASS | PASS | 0.94 |
-| ong-ot-dataset | PARTIAL | PARTIAL | PARTIAL | PARTIAL | PASS | PASS | PASS | PASS | 0.75 |
-| pipeline-control-validation | PARTIAL | FAIL | FAIL | PARTIAL | PASS | PASS | PASS | PASS | 0.62 |
-| pqc-ot-crosswalk | FAIL | FAIL | FAIL | PARTIAL | PASS | PASS | PASS | PASS | 0.56 |
-| crosswalk-lookup | FAIL | FAIL | FAIL | PARTIAL | FAIL | PASS | PASS | PASS | 0.44 |
+| *weight* | *1* | *1.5* | *1.5* | *2* | *1* | *1* | *0.5* | *0.5* | |
+| icsprio | PASS | PASS | PASS | PARTIAL | PASS | PASS | PASS | PASS | 0.89 |
+| ong-ot-dataset | PARTIAL | PARTIAL | PARTIAL | PARTIAL | PASS | PASS | PASS | PASS | 0.67 |
+| pipeline-control-validation | PARTIAL | FAIL | FAIL | PARTIAL | PASS | PASS | PASS | PASS | 0.50 |
+| pqc-ot-crosswalk | FAIL | FAIL | FAIL | PARTIAL | PASS | PASS | PASS | PASS | 0.44 |
+| crosswalk-lookup | FAIL | FAIL | FAIL | PARTIAL | FAIL | PASS | PASS | PASS | 0.33 |
 | reproflow (this project) | PASS | PASS | PASS | PASS | PASS | PASS | PASS | PASS | 1.00 |
 
 Per-repository detail:

@@ -44,11 +44,20 @@ eight structural criteria, each scored `pass` (1.0), `partial` (0.5), or
 Full pass/partial/fail rules for each criterion are in
 `docs/CODEBOOK.md`; the implementation is `src/reproflow/audit.py`.
 
-The score is an unweighted mean across the eight criteria
-(`docs/LIMITATIONS.md` §4 discusses what that does and does not imply).
-The check is structural: it confirms the right files exist and have the
-right shape, not that a repository's own pipeline currently runs
-end-to-end (`docs/LIMITATIONS.md` §1).
+The headline score is a **weighted** mean across the eight criteria:
+provenance (weight 2.0), tests and CI (1.5 each), packaging, the stats
+file, and the documentation set (1.0 each), and citation metadata and
+licensing (0.5 each) — see `docs/CODEBOOK.md` for the full table and the
+rationale (the weights favor the mechanics that make a result
+independently re-runnable — provenance, tests, CI — over administrative
+or presentational criteria). The flat, unweighted mean across the same
+eight criteria is also reported throughout (as `unweighted_score` in
+`stats.json`) for comparison, since the weighting is an editorial
+judgment call, not a derived or externally validated metric
+(`docs/LIMITATIONS.md` §4 discusses what either figure does and does not
+imply). The check itself is structural either way: it confirms the right
+files exist and have the right shape, not that a repository's own
+pipeline currently runs end-to-end (`docs/LIMITATIONS.md` §1).
 
 ## 3. Method
 
@@ -69,21 +78,27 @@ read-only inputs, audited as found (see `BUILD_SPEC.md`).
 
 ## 4. Results
 
-| Repository | Packaging | Tests | CI | Provenance | Stats file | Docs set | Citation | License | Score |
-|---|---|---|---|---|---|---|---|---|---|
-| icsprio | PASS | PASS | PASS | PARTIAL | PASS | PASS | PASS | PASS | **0.94** |
-| ong-ot-dataset | PARTIAL | PARTIAL | PARTIAL | PARTIAL | PASS | PASS | PASS | PASS | **0.75** |
-| pipeline-control-validation | PARTIAL | FAIL | FAIL | PARTIAL | PASS | PASS | PASS | PASS | **0.62** |
-| pqc-ot-crosswalk | FAIL | FAIL | FAIL | PARTIAL | PASS | PASS | PASS | PASS | **0.56** |
-| crosswalk-lookup | FAIL | FAIL | FAIL | PARTIAL | FAIL | PASS | PASS | PASS | **0.44** |
-| **reproflow (this project)** | PASS | PASS | PASS | PASS | PASS | PASS | PASS | PASS | **1.00** |
+| Repository | Packaging (1.0) | Tests (1.5) | CI (1.5) | Provenance (2.0) | Stats file (1.0) | Docs set (1.0) | Citation (0.5) | License (0.5) | Weighted score | Unweighted score |
+|---|---|---|---|---|---|---|---|---|---|---|
+| icsprio | PASS | PASS | PASS | PARTIAL | PASS | PASS | PASS | PASS | **0.89** | 0.94 |
+| ong-ot-dataset | PARTIAL | PARTIAL | PARTIAL | PARTIAL | PASS | PASS | PASS | PASS | **0.67** | 0.75 |
+| pipeline-control-validation | PARTIAL | FAIL | FAIL | PARTIAL | PASS | PASS | PASS | PASS | **0.50** | 0.62 |
+| pqc-ot-crosswalk | FAIL | FAIL | FAIL | PARTIAL | PASS | PASS | PASS | PASS | **0.44** | 0.56 |
+| crosswalk-lookup | FAIL | FAIL | FAIL | PARTIAL | FAIL | PASS | PASS | PASS | **0.33** | 0.44 |
+| **reproflow (this project)** | PASS | PASS | PASS | PASS | PASS | PASS | PASS | PASS | **1.00** | 1.00 |
 
 (Reproduced exactly from `data/processed/stats.json` and
 `audit_results.json`; commit hashes for each clone are in
-`data/raw/PROVENANCE.txt`.)
+`data/raw/PROVENANCE.txt`. Parenthesized numbers in the header row are
+each criterion's weight, from `docs/CODEBOOK.md`.)
 
-- Mean score across the five evidence repositories: **0.66**
-  (min 0.44, max 0.94).
+- Weighted mean score across the five evidence repositories: **0.57**
+  (min 0.33 for crosswalk-lookup, max 0.89 for icsprio). The unweighted
+  (flat eight-way) mean is **0.66** (min 0.44, max 0.94) — the weighted
+  figure is lower because the repositories that fail most often
+  (`pipeline-control-validation`, `pqc-ot-crosswalk`, `crosswalk-lookup`)
+  fail disproportionately on the higher-weighted tests/CI/provenance
+  criteria rather than the lower-weighted administrative ones.
 - Every evidence repository logs provenance for its fetches; none yet use
   `reproflow`'s own ledger schema, which is why all five score `partial`
   rather than `pass` on that criterion (`docs/LIMITATIONS.md` §2).
@@ -98,7 +113,8 @@ read-only inputs, audited as found (see `BUILD_SPEC.md`).
   citation metadata, and licensing — consistent with it being built as a
   static site rather than a Python package, a case the checklist was not
   originally tuned for (see `docs/NEXT_STEPS.md`).
-- `reproflow` scores 1.00 on its own audit as of this draft.
+- `reproflow` scores 1.00 (both weighted and unweighted) on its own audit
+  as of this draft.
 
 \autoref{fig:heatmap}: `paper/figures/compliance_heatmap.png` — repository
 x criterion compliance, viridis sequential ramp, PASS/PARTIAL/FAIL
@@ -129,15 +145,19 @@ of claim should be able to say about itself.
 See `docs/LIMITATIONS.md` for the full list; in summary: the audit checks
 structure, not execution; the provenance criterion is schema-specific to
 this framework's own ledger format; the evidence set is five repositories
-from one author, not a representative sample; the compliance score is an
-unweighted mean; and the publish gate's secret detection is a
-conservative pattern list, not a general-purpose scanner.
+from one author, not a representative sample; the per-criterion weights
+behind the headline score are the author's own editorial judgment, not a
+derived or externally validated metric (the unweighted mean is reported
+alongside it for exactly this reason); and the publish gate's secret
+detection is a conservative pattern list, not a general-purpose scanner.
 
 ## 7. Availability
 
-Code: `https://github.com/foikwuogu/reproflow` (MIT). Archive: Zenodo DOI
-pending first release (`docs/PUBLISH_GUIDE.md`). A JOSS submission draft
-is at `paper/paper.md`.
+Code: `https://github.com/foikwuogu/reproflow` (MIT). This report is the
+primary write-up filed with the archival release: **Zenodo DOI pending
+first release** (`docs/PUBLISH_GUIDE.md`). `paper/paper.md` is a
+short-form supplementary summary in the same document, not a separate
+JOSS submission — see that file's status line for why.
 
 ## Citation
 

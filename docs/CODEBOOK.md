@@ -10,10 +10,42 @@ traces back to a definition here.
 ## Audit criteria (`reproflow.audit`)
 
 Each criterion is scored `pass` (1.0), `partial` (0.5), or `fail` (0.0) for
-a given repository. The repository's score is the mean across all eight.
-Checks are structural and light-content (file presence, directory
-conventions, a regex match inside a workflow file) — they do not execute
-the audited repository's own pipeline.
+a given repository. Checks are structural and light-content (file
+presence, directory conventions, a regex match inside a workflow file) —
+they do not execute the audited repository's own pipeline.
+
+### Scoring: weighted (headline) and unweighted (comparison)
+
+The repository's headline score (`AuditResult.score`, `"score"` in
+`audit_results.json` / `stats.json`) is a **weighted** mean: each
+criterion's pass/partial/fail value is multiplied by an importance weight
+before averaging. The weights reflect this framework's own thesis —
+reproducibility *mechanics* that let an independent third party actually
+re-run and verify the work count for more than packaging polish or
+administrative metadata:
+
+| Criterion | Weight | Rationale |
+|---|---|---|
+| `provenance` | 2.0 | The specific claim this project makes ("every input is traceable"); most directly tied to the project's stated purpose. |
+| `tests` | 1.5 | A repository nobody can verify by re-running its checks is not independently reproducible. |
+| `ci` | 1.5 | Automated, third-party re-execution (not just "it worked on my machine") is what makes the tests criterion trustworthy over time. |
+| `packaging` | 1.0 | Necessary for anyone else to run the code at all, but a lower bar than actually testing or tracing it. |
+| `stats_file` | 1.0 | Ties prose claims to a re-derivable artifact — this project's own "stats-file rule." |
+| `docs_set` | 1.0 | Documents the process but does not itself verify anything. |
+| `citation_metadata` | 0.5 | Administrative: aids attribution/discovery, does not affect whether results reproduce. |
+| `license` | 0.5 | Administrative: legal clarity, not a reproducibility mechanic. |
+
+The weighted score is `sum(weight[c] * value[status]) / sum(weight[c])`
+across the eight criteria. These weights are the author's own editorial
+judgment, not a derived or externally validated metric — see
+`LIMITATIONS.md` §4.
+
+For transparency and comparison, `AuditResult.unweighted_score`
+(`"unweighted_score"` in the same JSON files) is also always computed: the
+plain flat mean across the eight criteria, each counted equally, exactly
+as this project reported before weighting was introduced. Both figures
+are reported side by side in `stats.json`, `paper/paper.md`, and
+`report/TECHNICAL_REPORT.md`.
 
 | Criterion | pass | partial | fail |
 |---|---|---|---|
@@ -59,10 +91,12 @@ By default the gate excludes `.git`, virtual-env and build directories,
 cloned evidence repository and against this project itself, and writes:
 
 - `audit_results.json` — one object per repository: `repo_name`,
-  `repo_path`, `commit` (git commit hash at clone time), `score`, and the
-  eight `criteria` objects (`name`, `status`, `detail`, `evidence`).
+  `repo_path`, `commit` (git commit hash at clone time), `score`
+  (weighted), `unweighted_score`, and the eight `criteria` objects
+  (`name`, `status`, `detail`, `evidence`).
 - `stats.json` — every summary number the paper and report quote:
-  per-repo scores, the mean/min/max score across the five evidence repos,
-  reproflow's own self-audit score, and a pass-count per criterion across
-  the evidence repos.
+  `criterion_weights`, per-repo weighted and unweighted scores, the
+  weighted and unweighted mean/min/max across the five evidence repos,
+  reproflow's own self-audit score (both forms), and a pass-count per
+  criterion across the evidence repos.
 - `qa_report.txt` — the same information formatted for a human reader.

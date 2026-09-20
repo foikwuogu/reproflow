@@ -25,6 +25,44 @@ CRITERIA = [
     "license",
 ]
 
+# Per-criterion importance weights used by AuditResult.score. These reflect
+# this framework's own thesis (see paper/paper.md "Statement of need" and
+# docs/CODEBOOK.md): the reproducibility *mechanics* that let an independent
+# third party actually re-run the work (tests, CI, provenance) matter more
+# than packaging polish or administrative metadata. Rationale, criterion by
+# criterion:
+#   provenance          2.0  the specific claim this project makes ("every
+#                             input is traceable"); the criterion most
+#                             directly tied to the project's stated purpose
+#   tests               1.5  a repository nobody can verify by re-running
+#                             its checks is not independently reproducible
+#   ci                  1.5  automated, third-party re-execution (not just
+#                             "it worked on my machine") is what makes the
+#                             tests criterion trustworthy over time
+#   packaging           1.0  installability is necessary for anyone else to
+#                             run the code at all, but is a lower bar than
+#                             actually testing or tracing it
+#   stats_file          1.0  ties prose claims to a re-derivable artifact,
+#                             this project's own "stats-file rule"
+#   docs_set            1.0  documents the process but does not itself
+#                             verify anything
+#   citation_metadata   0.5  administrative: helps attribution/discovery,
+#                             does not affect whether results reproduce
+#   license             0.5  administrative: legal clarity, not a
+#                             reproducibility mechanic
+# These weights are the author's own editorial judgment, not a derived or
+# externally validated metric — see docs/LIMITATIONS.md and docs/CODEBOOK.md.
+CRITERION_WEIGHTS = {
+    "packaging": 1.0,
+    "tests": 1.5,
+    "ci": 1.5,
+    "provenance": 2.0,
+    "stats_file": 1.0,
+    "docs_set": 1.0,
+    "citation_metadata": 0.5,
+    "license": 0.5,
+}
+
 DOCS_SET_FILES = {
     "codebook": ["docs/CODEBOOK.md", "CODEBOOK.md"],
     "limitations": ["docs/LIMITATIONS.md", "LIMITATIONS.md"],
@@ -52,10 +90,25 @@ class AuditResult:
     criteria: list
 
     @property
-    def score(self) -> float:
-        weights = {"pass": 1.0, "partial": 0.5, "fail": 0.0}
-        total = sum(weights[c.status] for c in self.criteria)
+    def unweighted_score(self) -> float:
+        """Plain mean across the eight criteria, each counted equally.
+        Kept alongside `score` for transparency: it's the number this
+        project reported before criteria were weighted, and it's what
+        docs/LIMITATIONS.md compares the weighted score against."""
+        status_value = {"pass": 1.0, "partial": 0.5, "fail": 0.0}
+        total = sum(status_value[c.status] for c in self.criteria)
         return round(total / len(self.criteria), 3) if self.criteria else 0.0
+
+    @property
+    def score(self) -> float:
+        """Weighted mean using CRITERION_WEIGHTS. This is the headline
+        score reported in README.md, paper.md, and TECHNICAL_REPORT.md."""
+        status_value = {"pass": 1.0, "partial": 0.5, "fail": 0.0}
+        if not self.criteria:
+            return 0.0
+        total_weight = sum(CRITERION_WEIGHTS[c.name] for c in self.criteria)
+        weighted_total = sum(CRITERION_WEIGHTS[c.name] * status_value[c.status] for c in self.criteria)
+        return round(weighted_total / total_weight, 3) if total_weight else 0.0
 
     def to_dict(self) -> dict:
         return {
@@ -63,6 +116,7 @@ class AuditResult:
             "repo_path": self.repo_path,
             "commit": self.commit,
             "score": self.score,
+            "unweighted_score": self.unweighted_score,
             "criteria": [c.to_dict() for c in self.criteria],
         }
 
@@ -256,11 +310,14 @@ def audit_many(repo_paths: dict[str, Path | str]) -> list[AuditResult]:
 
 
 def to_markdown_table(results: list[AuditResult]) -> str:
+    """Weighted-score table (see CRITERION_WEIGHTS). A row of the raw
+    per-criterion weights is included so the table is self-documenting
+    without a reader having to cross-reference audit.py."""
     header = "| Repository | " + " | ".join(CRITERIA) + " | Score |"
     sep = "|---" * (len(CRITERIA) + 2) + "|"
+    weight_row = "| *weight* | " + " | ".join(f"*{CRITERION_WEIGHTS[c]:g}*" for c in CRITERIA) + " | |"
     symbol = {"pass": "PASS", "partial": "PARTIAL", "fail": "FAIL"}
-    lines = [header, sep]
-    by_name = {c.name: c for r in results for c in r.criteria}  # unused, kept for clarity below
+    lines = [header, sep, weight_row]
     for r in results:
         crit_by_name = {c.name: c for c in r.criteria}
         row = [r.repo_name]

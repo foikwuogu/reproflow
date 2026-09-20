@@ -7,7 +7,33 @@
     "pqc-ot-crosswalk",
     "crosswalk-lookup"
   ],
+  "scoring_method": "weighted",
+  "criterion_weights": {
+    "packaging": 1.0,
+    "tests": 1.5,
+    "ci": 1.5,
+    "provenance": 2.0,
+    "stats_file": 1.0,
+    "docs_set": 1.0,
+    "citation_metadata": 0.5,
+    "license": 0.5
+  },
   "scores_by_repo": {
+    "icsprio": 0.889,
+    "ong-ot-dataset": 0.667,
+    "pipeline-control-validation": 0.5,
+    "pqc-ot-crosswalk": 0.444,
+    "crosswalk-lookup": 0.333,
+    "reproflow (this project)": 1.0
+  },
+  "evidence_scores_by_repo": {
+    "icsprio": 0.889,
+    "ong-ot-dataset": 0.667,
+    "pipeline-control-validation": 0.5,
+    "pqc-ot-crosswalk": 0.444,
+    "crosswalk-lookup": 0.333
+  },
+  "unweighted_scores_by_repo": {
     "icsprio": 0.938,
     "ong-ot-dataset": 0.75,
     "pipeline-control-validation": 0.625,
@@ -15,17 +41,19 @@
     "crosswalk-lookup": 0.438,
     "reproflow (this project)": 1.0
   },
-  "evidence_scores_by_repo": {
+  "unweighted_evidence_scores_by_repo": {
     "icsprio": 0.938,
     "ong-ot-dataset": 0.75,
     "pipeline-control-validation": 0.625,
     "pqc-ot-crosswalk": 0.562,
     "crosswalk-lookup": 0.438
   },
-  "mean_evidence_score": 0.663,
-  "min_evidence_score": 0.438,
-  "max_evidence_score": 0.938,
+  "mean_evidence_score": 0.567,
+  "min_evidence_score": 0.333,
+  "max_evidence_score": 0.889,
+  "mean_unweighted_evidence_score": 0.663,
   "reproflow_self_score": 1.0,
+  "reproflow_self_unweighted_score": 1.0,
   "criterion_pass_counts_among_evidence_repos": {
     "packaging": 1,
     "tests": 1,

@@ -4,6 +4,15 @@ No GitHub or Zenodo token was supplied this session, so nothing below was
 pushed automatically. This guide is meant to be complete enough to finish
 the whole sequence in one sitting, in order.
 
+**Publication decision (2026-09-20): Zenodo-only.** The author considered
+JOSS and decided against it on reflection (see
+`docs/VERIFY_CHECKLIST.md` "Judgment calls to own" and
+`docs/LIMITATIONS.md` §6) — the active plan is §1 GitHub (already done as
+of this writing: the repository is pushed and CI is green) and §2 Zenodo.
+§3 JOSS below is kept only as a deferred reference in case that decision
+is revisited later (`docs/NEXT_STEPS.md`); do not act on it as part of
+this release.
+
 **Before any of this:** finish `docs/VERIFY_CHECKLIST.md` and confirm
 `reproflow gate check .` reports no findings (currently: 7 draft stamps in
 README.md, docs/, paper/paper.md, and report/TECHNICAL_REPORT.md — see
@@ -55,9 +64,12 @@ Security-Relevant Data Pipelines`, authors and ORCIDs from
 MIT, keywords from `pyproject.toml`, version `0.1.0`, related identifier
 the GitHub URL -> Publish.
 
-## 3. JOSS
+## 3. JOSS (deferred — not part of the current plan)
 
-JOSS's own checklist, already satisfied by this repository:
+Kept for reference only. The author's current decision is Zenodo-only
+(see the note at the top of this file and `docs/LIMITATIONS.md` §6); skip
+this section unless that decision is revisited. JOSS's own checklist,
+already satisfied by this repository:
 
 - [x] OSI-approved license (MIT) — `LICENSE`
 - [x] Installation instructions — `README.md`
