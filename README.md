@@ -113,5 +113,4 @@ See `docs/LIMITATIONS.md` before using or citing anything here.
 
 ## Citation
 
-See `CITATION.cff`. DOI: pending first Zenodo release (see
-`docs/PUBLISH_GUIDE.md`).
+See `CITATION.cff`. DOI: [10.5281/zenodo.22865360](https://doi.org/10.5281/zenodo.22865360).

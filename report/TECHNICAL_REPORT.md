@@ -3,7 +3,7 @@
 **Authors:** Friday Ogochukwu Ikwuogu (ORCID [0009-0009-2222-1318](https://orcid.org/0009-0009-2222-1318)), Abidemi Orimogunje, Eria Othieno Pinyi, David Mike-Ewewie
 **Date:** 2026-09-20
 **License:** CC BY 4.0 (this report); MIT (code) — see `LICENSE`
-**DOI:** pending first Zenodo release
+**DOI:** [10.5281/zenodo.22865360](https://doi.org/10.5281/zenodo.22865360)
 
 ## 1. Motivation
 
@@ -152,8 +152,8 @@ detection is a conservative pattern list, not a general-purpose scanner.
 ## 7. Availability
 
 Code: `https://github.com/foikwuogu/reproflow` (MIT). This report is the
-primary write-up filed with the archival release: **Zenodo DOI pending
-first release** (`docs/PUBLISH_GUIDE.md`). `paper/paper.md` is a
+primary write-up filed with the archival release: **Zenodo DOI
+10.5281/zenodo.22865360** (`docs/PUBLISH_GUIDE.md`). `paper/paper.md` is a
 short-form supplementary summary in the same document, not a separate
 JOSS submission — see that file's status line for why.
 

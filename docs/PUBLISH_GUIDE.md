@@ -1,8 +1,8 @@
 # Publish guide
 
-No GitHub or Zenodo token was supplied this session, so nothing below was
-pushed automatically. This guide is meant to be complete enough to finish
-the whole sequence in one sitting, in order.
+The GitHub repository is published and the Zenodo archive is available at
+[10.5281/zenodo.22865360](https://doi.org/10.5281/zenodo.22865360). This
+guide records the release workflow for future versions.
 
 **Publication decision (2026-09-20): Zenodo-only.** The author considered
 JOSS and decided against it on reflection (see
@@ -13,11 +13,8 @@ of this writing: the repository is pushed and CI is green) and §2 Zenodo.
 is revisited later (`docs/NEXT_STEPS.md`); do not act on it as part of
 this release.
 
-**Before any of this:** finish `docs/VERIFY_CHECKLIST.md` and confirm
-`reproflow gate check .` reports no findings (currently: 7 draft stamps in
-README.md, docs/, paper/paper.md, and report/TECHNICAL_REPORT.md — see
-the gate output for the exact list). Publishing before that is what the
-gate exists to stop.
+**Before any future release:** finish `docs/VERIFY_CHECKLIST.md` and
+confirm `reproflow gate check .` reports no findings.
 
 ## 1. GitHub
 
@@ -51,7 +48,7 @@ Simplest path, since this is already a GitHub project:
 3. Back on GitHub, create the `v0.1.0` release (step 1.3 above) if you
    haven't yet — Zenodo archives it and mints a DOI within minutes.
 4. Copy the minted DOI into:
-   - `CITATION.cff` (`doi:` field, replacing `10.5281/zenodo.pending`)
+   - `CITATION.cff` (`doi:` field, replacing the previous pending DOI)
    - The README status line and the "Citation" section
    - `docs/PUBLISH_GUIDE.md` itself (this file), for your own record
 5. Add the DOI badge Zenodo gives you to the top of `README.md`.

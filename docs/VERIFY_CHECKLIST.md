@@ -95,4 +95,6 @@ refuses to proceed while any remain.
       findings — verified 2026-09-20
 - [x] `CITATION.cff`, `AUTHORS.json`, and `LICENSE` reviewed for correct
       names, ORCID, affiliations, and license — verified 2026-09-20
-- [ ] Evidence log row written the day of release
+- [x] Evidence log row written the day of release — Zenodo archive
+      `10.5281/zenodo.22865360`, published 2026-09-20:
+      https://doi.org/10.5281/zenodo.22865360

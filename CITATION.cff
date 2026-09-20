@@ -20,7 +20,7 @@ authors:
     affiliation: "Computer Science Department, University of Texas Permian Basin, Odessa, Texas, USA"
 license: MIT
 repository-code: "https://github.com/foikwuogu/reproflow"
-doi: "10.5281/zenodo.pending"
+doi: "10.5281/zenodo.22865360"
 keywords:
   - reproducibility
   - research-software
