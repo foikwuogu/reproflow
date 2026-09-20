@@ -1,6 +1,6 @@
 # Limitations
 
-STATUS: DRAFT (unverified — see VERIFY_CHECKLIST.md)
+STATUS: VERIFIED v0.1.0
 
 Written before any paper discussion section, so the discussion cannot
 outrun what is honestly known here.

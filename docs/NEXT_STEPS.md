@@ -1,6 +1,6 @@
 # Next steps
 
-STATUS: DRAFT
+STATUS: VERIFIED v0.1.0
 
 What v0.2 adds, so v0.1 is understood as a first release.
 

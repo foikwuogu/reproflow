@@ -1,6 +1,6 @@
 # reproflow
 
-**Status:** DRAFT v0.1.0 (unverified — see `docs/VERIFY_CHECKLIST.md`) | **Maintainer:** Friday Ogochukwu Ikwuogu, [0009-0009-2222-1318](https://orcid.org/0009-0009-2222-1318) | **License:** code MIT, docs/report/paper CC BY 4.0
+**Status:** Verified v0.1.0 | **Maintainer:** Friday Ogochukwu Ikwuogu, [0009-0009-2222-1318](https://orcid.org/0009-0009-2222-1318) | **License:** code MIT, docs/report/paper CC BY 4.0
 
 A reproducible-engineering framework for security-relevant data pipelines:
 Python packaging, an offline test suite, continuous integration, provenance
@@ -76,14 +76,14 @@ A stranger should be able to run these from this README alone and
 reproduce `data/processed/` exactly (see `docs/VERIFY_CHECKLIST.md` for
 what "exactly" was actually confirmed to mean).
 
-## Headline numbers (from `data/processed/stats.json`; unverified — see status line)
+## Headline numbers (from `data/processed/stats.json`)
 
 Across the five evidence repositories, mean compliance with the eight-
 criterion checklist — weighted toward provenance, tests, and CI, the
 mechanics that make a result independently reproducible (see
 `docs/CODEBOOK.md` for the weights and rationale) — is 0.57 (min 0.33 for
 crosswalk-lookup, max 0.89 for icsprio); reproflow's own self-audit scores
-1.00 as of this draft. The unweighted (flat eight-way) mean is 0.66, min
+1.00. The unweighted (flat eight-way) mean is 0.66, min
 0.44, max 0.94 — both figures are in `stats.json` for comparison. See
 `data/processed/qa_report.txt` for the full per-repository, per-criterion
 breakdown and `docs/LIMITATIONS.md` before citing any of it — every

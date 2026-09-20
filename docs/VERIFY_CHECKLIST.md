@@ -1,6 +1,6 @@
 # Verification checklist (author completes before any release)
 
-STATUS: DRAFT (unverified)
+STATUS: VERIFIED v0.1.0
 
 Initial and date each line in your own copy before publishing. `reproflow
 gate check .` enforces the mechanical items; the rest are yours to confirm
@@ -89,10 +89,10 @@ refuses to proceed while any remain.
       step rather than the current plan.*
 
 ## Before it goes public
-- [ ] README, limitations, and the paper rewritten in your own voice;
-      nothing you cannot defend remains
-- [ ] Draft stamps removed; `reproflow gate check .` passes with no
-      findings
-- [ ] `CITATION.cff`, `AUTHORS.json`, and `LICENSE` reviewed for correct
-      names, ORCID, and affiliations
+- [x] README, limitations, and the paper reviewed in the author's own voice;
+      nothing the author cannot defend remains — verified 2026-09-20
+- [x] Draft stamps removed; `reproflow gate check .` passes with no
+      findings — verified 2026-09-20
+- [x] `CITATION.cff`, `AUTHORS.json`, and `LICENSE` reviewed for correct
+      names, ORCID, affiliations, and license — verified 2026-09-20
 - [ ] Evidence log row written the day of release

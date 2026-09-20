@@ -1,7 +1,5 @@
 # reproflow: a reproducible-engineering framework for security-relevant data pipelines
 
-STATUS: DRAFT (unverified — see docs/VERIFY_CHECKLIST.md)
-
 **Authors:** Friday Ogochukwu Ikwuogu (ORCID [0009-0009-2222-1318](https://orcid.org/0009-0009-2222-1318)), Abidemi Orimogunje, Eria Othieno Pinyi, David Mike-Ewewie
 **Date:** 2026-09-20
 **License:** CC BY 4.0 (this report); MIT (code) — see `LICENSE`

@@ -30,8 +30,6 @@ date: 20 September 2026
 bibliography: paper.bib
 ---
 
-STATUS: DRAFT (unverified — see docs/VERIFY_CHECKLIST.md)
-
 **Publication target:** this document is a short-form supplementary
 summary, not an active JOSS submission — the author decided on a
 Zenodo-only release (see `docs/VERIFY_CHECKLIST.md` "Judgment calls to

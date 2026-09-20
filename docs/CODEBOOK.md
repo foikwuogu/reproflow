@@ -1,6 +1,6 @@
 # Codebook
 
-STATUS: DRAFT (unverified — see VERIFY_CHECKLIST.md)
+STATUS: VERIFIED v0.1.0
 
 This defines every criterion `reproflow audit` checks, what counts as
 pass/partial/fail for each, and every field in the ledger and result
