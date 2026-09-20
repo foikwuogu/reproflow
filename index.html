@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ReproFlow: a reproducible-engineering framework for security-relevant data pipelines.">
+  <title>ReproFlow | Reproducible Engineering</title>
+  <style>
+    :root {
+      --ink: #17231d;
+      --muted: #5c6b61;
+      --paper: #f4f0e7;
+      --panel: #fffdf8;
+      --line: #d7d8c9;
+      --green: #1f6b4f;
+      --green-dark: #124533;
+      --gold: #c28a32;
+      --shadow: 0 18px 45px rgba(23, 35, 29, .12);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 88% 8%, rgba(194, 138, 50, .16), transparent 25rem),
+        linear-gradient(135deg, #f4f0e7 0%, #e8eee5 100%);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.6;
+    }
+    a { color: var(--green); }
+    .page { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    header { padding: 28px 0 90px; }
+    nav { display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+    .mark { color: var(--green-dark); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    nav a { color: var(--ink); text-decoration: none; font: 600 14px/1.2 Arial, sans-serif; }
+    .hero { max-width: 790px; padding-top: 92px; }
+    .eyebrow { color: var(--gold); font: 700 13px/1.2 Arial, sans-serif; letter-spacing: .16em; text-transform: uppercase; }
+    h1 { margin: 16px 0 20px; max-width: 760px; font-size: clamp(46px, 8vw, 88px); line-height: .96; letter-spacing: 0; }
+    .lede { max-width: 650px; margin: 0; color: var(--muted); font-size: clamp(19px, 2.4vw, 25px); }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+    .button { display: inline-block; padding: 12px 18px; border: 1px solid var(--green); color: var(--panel); background: var(--green); text-decoration: none; font: 700 14px/1.2 Arial, sans-serif; }
+    .button.secondary { color: var(--green-dark); background: transparent; }
+    main { padding: 0 0 70px; }
+    .status { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 16px; margin-top: -35px; }
+    .card { padding: 26px; border: 1px solid var(--line); background: rgba(255, 253, 248, .82); box-shadow: var(--shadow); }
+    .card h2 { margin: 0 0 8px; font-size: 23px; line-height: 1.1; }
+    .card p { margin: 0; color: var(--muted); }
+    .pass { color: var(--green); font: 700 14px/1.2 Arial, sans-serif; letter-spacing: .06em; text-transform: uppercase; }
+    section { padding-top: 80px; }
+    .section-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; border-bottom: 1px solid var(--line); }
+    h2 { font-size: 38px; line-height: 1.1; }
+    .section-heading p { color: var(--muted); }
+    .links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; }
+    .link-card { display: block; min-height: 150px; padding: 22px; border-top: 4px solid var(--gold); color: var(--ink); background: var(--panel); text-decoration: none; }
+    .link-card:hover { transform: translateY(-3px); }
+    .link-card strong { display: block; margin-bottom: 8px; font-size: 20px; }
+    .link-card span { color: var(--muted); }
+    footer { padding: 28px 0 44px; border-top: 1px solid var(--line); color: var(--muted); font-size: 15px; }
+    footer p { margin: 6px 0; }
+    @media (max-width: 760px) {
+      header { padding-bottom: 70px; }
+      .hero { padding-top: 65px; }
+      .status, .links { grid-template-columns: 1fr; }
+      .section-heading { display: block; }
+      nav a { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="page">
+    <nav aria-label="Primary navigation">
+      <div class="mark">ReproFlow</div>
+      <a href="https://github.com/foikwuogu/reproflow">View source on GitHub</a>
+    </nav>
+    <div class="hero">
+      <div class="eyebrow">Reproducible engineering for research software</div>
+      <h1>Make the path from data to claim inspectable.</h1>
+      <p class="lede">ReproFlow packages testing, provenance logging, repository auditing, and publish gates into one small Python framework for security-relevant data pipelines.</p>
+      <div class="actions">
+        <a class="button" href="https://github.com/foikwuogu/reproflow">Open the repository</a>
+        <a class="button secondary" href="README.md">Read the README</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="status">
+      <article class="card">
+        <div class="pass">Verified</div>
+        <h2>48 tests passing</h2>
+        <p>The full pytest suite runs in local development and GitHub Actions CI.</p>
+      </article>
+      <article class="card">
+        <h2>Python package</h2>
+        <p>Install the command-line framework with <code>pip install -e ".[dev]"</code>.</p>
+      </article>
+      <article class="card">
+        <h2>Open workflow</h2>
+        <p>Evidence, limitations, and release checks remain visible alongside the code.</p>
+      </article>
+    </div>
+
+    <section aria-labelledby="explore-heading">
+      <div class="section-heading">
+        <h2 id="explore-heading">Explore the project</h2>
+        <p>Documentation and evidence for the framework.</p>
+      </div>
+      <div class="links">
+        <a class="link-card" href="docs/CODEBOOK.md"><strong>Codebook</strong><span>Understand the audit criteria and scoring vocabulary.</span></a>
+        <a class="link-card" href="docs/VERIFY_CHECKLIST.md"><strong>Verification checklist</strong><span>Follow the checks required before a release.</span></a>
+        <a class="link-card" href="docs/LIMITATIONS.md"><strong>Limitations</strong><span>Read the boundaries and interpretation notes.</span></a>
+        <a class="link-card" href="report/TECHNICAL_REPORT.md"><strong>Technical report</strong><span>Read the fuller engineering account.</span></a>
+        <a class="link-card" href="paper/paper.md"><strong>Paper</strong><span>Review the research-facing description.</span></a>
+        <a class="link-card" href="data/processed/qa_report.txt"><strong>QA report</strong><span>Inspect the processed audit evidence.</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="page">
+    <p><strong>Friday Ogochukwu Ikwuogu</strong></p>
+    <p>ORCID: <a href="https://orcid.org/0009-0009-2222-1318">0009-0009-2222-1318</a> · Independent Researcher, Odessa, Texas, USA</p>
+    <p><a href="https://github.com/foikwuogu">GitHub</a> · <a href="https://scholar.google.com/citations?pli=1&amp;authuser=3&amp;user=XADxRNkAAAAJ">Google Scholar</a> · <a href="mailto:Friday.ikwuogu@gmail.com">Friday.ikwuogu@gmail.com</a></p>
+  </footer>
+</body>
+</html>
