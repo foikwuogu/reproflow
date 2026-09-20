@@ -1,0 +1,22 @@
+# Verification checklist (author completes before any release)
+
+Initial and date each line in your own copy. `reproflow gate check .`
+checks the mechanical items below (draft stamps, unresolved verify-tags,
+placeholders, secrets); the rest are yours.
+
+## Reproduce
+- [ ] Fresh fetch via `code/01_fetch.py`; row counts match PROVENANCE.txt or drift is explained
+- [ ] Full pipeline re-run; outputs diff clean against the committed versions
+- [ ] Every number in any document re-derived from `stats.json` after the re-run
+- [ ] `pytest -q` passes
+
+## Source-level checks
+- [ ] Five records checked by hand against the original source pages
+- [ ] Source vintages confirmed current
+- [ ] Licenses and terms of every source re-read; nothing forbids redistribution
+
+## Before it goes public
+- [ ] README, limitations, and any manuscript rewritten in your own voice
+- [ ] Draft stamps removed (`04_figures.py --final`); `reproflow gate check .` passes
+- [ ] License files, name, ORCID, contact in place
+- [ ] Evidence log row written the day of release

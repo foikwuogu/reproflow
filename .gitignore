@@ -1,0 +1,18 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+build/
+dist/
+.env
+
+# The evidence-repository clones are read-only, re-fetchable inputs
+# (code/01_fetch_repos.py). Their commit hashes are recorded in
+# data/raw/PROVENANCE.txt, which IS committed; the ~120MB of cloned
+# working trees themselves are not, to keep this repository small and to
+# avoid vendoring copies of five other repositories that already have
+# their own homes (and, for icsprio and pipeline-control-validation,
+# their own DOIs).
+data/raw/evidence_repos/

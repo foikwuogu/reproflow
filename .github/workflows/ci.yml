@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.10", "3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install reproflow
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]"
+
+      - name: Run test suite
+        run: pytest -q --cov=reproflow --cov-report=term-missing
+
+      - name: Publish gate self-check
+        run: python -m reproflow.cli gate check . --json gate_findings.json || true
+
+      - name: Upload gate findings
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gate-findings-${{ matrix.python-version }}
+          path: gate_findings.json

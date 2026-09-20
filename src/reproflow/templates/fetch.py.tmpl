@@ -1,0 +1,28 @@
+#!/usr/bin/env python3
+"""01_fetch.py — fetch raw inputs and log provenance for each.
+
+Every source this script downloads must be recorded with
+reproflow.provenance.record() (or record_repo_clone() for a cloned repo)
+before 02_build.py is allowed to depend on it. This keeps data/raw/
+self-documenting: a stranger can see exactly what was fetched, from where,
+and verify the bytes are unchanged.
+"""
+from pathlib import Path
+
+from reproflow import provenance
+
+RAW_DIR = Path(__file__).resolve().parents[1] / "data" / "raw"
+LEDGER = RAW_DIR / "PROVENANCE.txt"
+
+
+def main() -> None:
+    RAW_DIR.mkdir(parents=True, exist_ok=True)
+    # Example:
+    # downloaded = RAW_DIR / "source.csv"
+    # ... actually download `downloaded` here ...
+    # provenance.record(downloaded, source_url="https://example.org/source.csv", ledger=LEDGER)
+    raise NotImplementedError("Add your source fetches above, each followed by provenance.record().")
+
+
+if __name__ == "__main__":
+    main()

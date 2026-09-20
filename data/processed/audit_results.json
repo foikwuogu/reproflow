@@ -1,0 +1,454 @@
+[
+  {
+    "repo_name": "icsprio",
+    "repo_path": "/home/claude/reproflow/data/raw/evidence_repos/icsprio",
+    "commit": "ef5ee3986a513eeeb6fd00e2d8a5c8f5825a5131",
+    "score": 0.938,
+    "criteria": [
+      {
+        "name": "packaging",
+        "status": "pass",
+        "detail": "installable package: pyproject.toml present",
+        "evidence": [
+          "pyproject.toml"
+        ]
+      },
+      {
+        "name": "tests",
+        "status": "pass",
+        "detail": "12 test file(s) found",
+        "evidence": [
+          "tests/test_attack_ics.py",
+          "tests/test_attack_mapping.py",
+          "tests/test_cisa_ics.py",
+          "tests/test_cli.py",
+          "tests/test_epss.py"
+        ]
+      },
+      {
+        "name": "ci",
+        "status": "pass",
+        "detail": "1 workflow(s), at least one runs the test suite",
+        "evidence": [
+          ".github/workflows/ci.yml"
+        ]
+      },
+      {
+        "name": "provenance",
+        "status": "partial",
+        "detail": "data/raw/PROVENANCE.txt present but not fully conformant: none of 15852 record(s) match this module's key=value schema (filename=... | bytes=... | sha256=... | source_url=... | access_date=...); the ledger may use a different provenance convention",
+        "evidence": [
+          "data/raw/PROVENANCE.txt"
+        ]
+      },
+      {
+        "name": "stats_file",
+        "status": "pass",
+        "detail": "parseable, non-empty stats file at data/processed/stats.json",
+        "evidence": [
+          "data/processed/stats.json"
+        ]
+      },
+      {
+        "name": "docs_set",
+        "status": "pass",
+        "detail": "all 4 standard docs present",
+        "evidence": [
+          "docs/CODEBOOK.md",
+          "docs/LIMITATIONS.md",
+          "docs/VERIFY_CHECKLIST.md",
+          "docs/NEXT_STEPS.md"
+        ]
+      },
+      {
+        "name": "citation_metadata",
+        "status": "pass",
+        "detail": "CITATION.cff and AUTHORS.json both present",
+        "evidence": [
+          "CITATION.cff",
+          "AUTHORS.json"
+        ]
+      },
+      {
+        "name": "license",
+        "status": "pass",
+        "detail": "2 license files (dual code/data licensing)",
+        "evidence": [
+          "LICENSE",
+          "LICENSE-DATA"
+        ]
+      }
+    ]
+  },
+  {
+    "repo_name": "ong-ot-dataset",
+    "repo_path": "/home/claude/reproflow/data/raw/evidence_repos/ong-ot-dataset",
+    "commit": "acd2bda7505e914a0213bdb1782ea782e1d375be",
+    "score": 0.75,
+    "criteria": [
+      {
+        "name": "packaging",
+        "status": "partial",
+        "detail": "requirements.txt present but no pyproject.toml/setup.py: dependencies are pinned but the project is not installable as a package (no console entry point, no version).",
+        "evidence": [
+          "requirements.txt"
+        ]
+      },
+      {
+        "name": "tests",
+        "status": "partial",
+        "detail": "only 1 test file(s) found",
+        "evidence": [
+          "scripts/test_zenodo_sandbox.py"
+        ]
+      },
+      {
+        "name": "ci",
+        "status": "partial",
+        "detail": "2 workflow(s) present but none appear to invoke pytest/unittest (may automate publishing/metadata rather than testing)",
+        "evidence": [
+          ".github/workflows/update-zenodo-metadata.yml",
+          ".github/workflows/publish-zenodo.yml"
+        ]
+      },
+      {
+        "name": "provenance",
+        "status": "partial",
+        "detail": "data/raw/PROVENANCE.txt present but not fully conformant: none of 6 record(s) match this module's key=value schema (filename=... | bytes=... | sha256=... | source_url=... | access_date=...); the ledger may use a different provenance convention",
+        "evidence": [
+          "data/raw/PROVENANCE.txt"
+        ]
+      },
+      {
+        "name": "stats_file",
+        "status": "pass",
+        "detail": "parseable, non-empty stats file at report/stats.json",
+        "evidence": [
+          "report/stats.json"
+        ]
+      },
+      {
+        "name": "docs_set",
+        "status": "pass",
+        "detail": "all 4 standard docs present",
+        "evidence": [
+          "docs/CODEBOOK.md",
+          "docs/LIMITATIONS.md",
+          "docs/VERIFY_CHECKLIST.md",
+          "docs/NEXT_STEPS.md"
+        ]
+      },
+      {
+        "name": "citation_metadata",
+        "status": "pass",
+        "detail": "CITATION.cff and AUTHORS.json both present",
+        "evidence": [
+          "CITATION.cff",
+          "AUTHORS.json"
+        ]
+      },
+      {
+        "name": "license",
+        "status": "pass",
+        "detail": "LICENSE file present",
+        "evidence": [
+          "LICENSE"
+        ]
+      }
+    ]
+  },
+  {
+    "repo_name": "pipeline-control-validation",
+    "repo_path": "/home/claude/reproflow/data/raw/evidence_repos/pipeline-control-validation",
+    "commit": "ed5855c9ef77139276f20ac8f7ae21893e4e0b57",
+    "score": 0.625,
+    "criteria": [
+      {
+        "name": "packaging",
+        "status": "partial",
+        "detail": "requirements.txt present but no pyproject.toml/setup.py: dependencies are pinned but the project is not installable as a package (no console entry point, no version).",
+        "evidence": [
+          "requirements.txt"
+        ]
+      },
+      {
+        "name": "tests",
+        "status": "fail",
+        "detail": "no test_*.py or *_test.py files found",
+        "evidence": []
+      },
+      {
+        "name": "ci",
+        "status": "fail",
+        "detail": "no .github/workflows directory",
+        "evidence": []
+      },
+      {
+        "name": "provenance",
+        "status": "partial",
+        "detail": "data/raw/PROVENANCE.txt present but not fully conformant: none of 6 record(s) match this module's key=value schema (filename=... | bytes=... | sha256=... | source_url=... | access_date=...); the ledger may use a different provenance convention",
+        "evidence": [
+          "data/raw/PROVENANCE.txt"
+        ]
+      },
+      {
+        "name": "stats_file",
+        "status": "pass",
+        "detail": "parseable, non-empty stats file at paper/stats.json",
+        "evidence": [
+          "paper/stats.json"
+        ]
+      },
+      {
+        "name": "docs_set",
+        "status": "pass",
+        "detail": "all 4 standard docs present",
+        "evidence": [
+          "docs/CODEBOOK.md",
+          "docs/LIMITATIONS.md",
+          "docs/VERIFY_CHECKLIST.md",
+          "docs/NEXT_STEPS.md"
+        ]
+      },
+      {
+        "name": "citation_metadata",
+        "status": "pass",
+        "detail": "CITATION.cff and AUTHORS.json both present",
+        "evidence": [
+          "CITATION.cff",
+          "AUTHORS.json"
+        ]
+      },
+      {
+        "name": "license",
+        "status": "pass",
+        "detail": "LICENSE file present",
+        "evidence": [
+          "LICENSE"
+        ]
+      }
+    ]
+  },
+  {
+    "repo_name": "pqc-ot-crosswalk",
+    "repo_path": "/home/claude/reproflow/data/raw/evidence_repos/pqc-ot-crosswalk",
+    "commit": "2e946a6e5fce7c0ded630af404512826e3b5234a",
+    "score": 0.562,
+    "criteria": [
+      {
+        "name": "packaging",
+        "status": "fail",
+        "detail": "no pyproject.toml, setup.py, or requirements.txt found",
+        "evidence": []
+      },
+      {
+        "name": "tests",
+        "status": "fail",
+        "detail": "no test_*.py or *_test.py files found",
+        "evidence": []
+      },
+      {
+        "name": "ci",
+        "status": "fail",
+        "detail": "no .github/workflows directory",
+        "evidence": []
+      },
+      {
+        "name": "provenance",
+        "status": "partial",
+        "detail": "data/raw/PROVENANCE.txt present but not fully conformant: none of 25 record(s) match this module's key=value schema (filename=... | bytes=... | sha256=... | source_url=... | access_date=...); the ledger may use a different provenance convention",
+        "evidence": [
+          "data/raw/PROVENANCE.txt"
+        ]
+      },
+      {
+        "name": "stats_file",
+        "status": "pass",
+        "detail": "parseable, non-empty stats file at paper/stats.json",
+        "evidence": [
+          "paper/stats.json"
+        ]
+      },
+      {
+        "name": "docs_set",
+        "status": "pass",
+        "detail": "all 4 standard docs present",
+        "evidence": [
+          "docs/CODEBOOK.md",
+          "docs/LIMITATIONS.md",
+          "docs/VERIFY_CHECKLIST.md",
+          "docs/NEXT_STEPS.md"
+        ]
+      },
+      {
+        "name": "citation_metadata",
+        "status": "pass",
+        "detail": "CITATION.cff and AUTHORS.json both present",
+        "evidence": [
+          "CITATION.cff",
+          "AUTHORS.json"
+        ]
+      },
+      {
+        "name": "license",
+        "status": "pass",
+        "detail": "LICENSE file present",
+        "evidence": [
+          "LICENSE"
+        ]
+      }
+    ]
+  },
+  {
+    "repo_name": "crosswalk-lookup",
+    "repo_path": "/home/claude/reproflow/data/raw/evidence_repos/crosswalk-lookup",
+    "commit": "60ea8199b74a9df78e49fa98bef3bf5265d072b3",
+    "score": 0.438,
+    "criteria": [
+      {
+        "name": "packaging",
+        "status": "fail",
+        "detail": "no pyproject.toml, setup.py, or requirements.txt found",
+        "evidence": []
+      },
+      {
+        "name": "tests",
+        "status": "fail",
+        "detail": "no test_*.py or *_test.py files found",
+        "evidence": []
+      },
+      {
+        "name": "ci",
+        "status": "fail",
+        "detail": "no .github/workflows directory",
+        "evidence": []
+      },
+      {
+        "name": "provenance",
+        "status": "partial",
+        "detail": "data/raw/PROVENANCE.txt present but not fully conformant: none of 15 record(s) match this module's key=value schema (filename=... | bytes=... | sha256=... | source_url=... | access_date=...); the ledger may use a different provenance convention",
+        "evidence": [
+          "data/raw/PROVENANCE.txt"
+        ]
+      },
+      {
+        "name": "stats_file",
+        "status": "fail",
+        "detail": "no stats.json found",
+        "evidence": []
+      },
+      {
+        "name": "docs_set",
+        "status": "pass",
+        "detail": "all 4 standard docs present",
+        "evidence": [
+          "docs/CODEBOOK.md",
+          "docs/LIMITATIONS.md",
+          "docs/VERIFY_CHECKLIST.md",
+          "docs/NEXT_STEPS.md"
+        ]
+      },
+      {
+        "name": "citation_metadata",
+        "status": "pass",
+        "detail": "CITATION.cff and AUTHORS.json both present",
+        "evidence": [
+          "CITATION.cff",
+          "AUTHORS.json"
+        ]
+      },
+      {
+        "name": "license",
+        "status": "pass",
+        "detail": "LICENSE file present",
+        "evidence": [
+          "LICENSE"
+        ]
+      }
+    ]
+  },
+  {
+    "repo_name": "reproflow (this project)",
+    "repo_path": "/home/claude/reproflow",
+    "commit": null,
+    "score": 1.0,
+    "criteria": [
+      {
+        "name": "packaging",
+        "status": "pass",
+        "detail": "installable package: pyproject.toml present",
+        "evidence": [
+          "pyproject.toml"
+        ]
+      },
+      {
+        "name": "tests",
+        "status": "pass",
+        "detail": "18 test file(s) found",
+        "evidence": [
+          "data/raw/evidence_repos/icsprio/tests/test_attack_ics.py",
+          "data/raw/evidence_repos/icsprio/tests/test_attack_mapping.py",
+          "data/raw/evidence_repos/icsprio/tests/test_cisa_ics.py",
+          "data/raw/evidence_repos/icsprio/tests/test_cli.py",
+          "data/raw/evidence_repos/icsprio/tests/test_epss.py"
+        ]
+      },
+      {
+        "name": "ci",
+        "status": "pass",
+        "detail": "1 workflow(s), at least one runs the test suite",
+        "evidence": [
+          ".github/workflows/ci.yml"
+        ]
+      },
+      {
+        "name": "provenance",
+        "status": "pass",
+        "detail": "data/raw/PROVENANCE.txt present and well-formed (5 record(s))",
+        "evidence": [
+          "data/raw/PROVENANCE.txt"
+        ]
+      },
+      {
+        "name": "stats_file",
+        "status": "pass",
+        "detail": "parseable, non-empty stats file at data/raw/evidence_repos/ong-ot-dataset/report/stats.json",
+        "evidence": [
+          "data/raw/evidence_repos/ong-ot-dataset/report/stats.json",
+          "data/raw/evidence_repos/pipeline-control-validation/paper/stats.json",
+          "data/raw/evidence_repos/icsprio/data/processed/stats.json",
+          "data/raw/evidence_repos/pqc-ot-crosswalk/paper/stats.json",
+          "data/processed/stats.json"
+        ]
+      },
+      {
+        "name": "docs_set",
+        "status": "pass",
+        "detail": "all 4 standard docs present",
+        "evidence": [
+          "docs/CODEBOOK.md",
+          "docs/LIMITATIONS.md",
+          "docs/VERIFY_CHECKLIST.md",
+          "docs/NEXT_STEPS.md"
+        ]
+      },
+      {
+        "name": "citation_metadata",
+        "status": "pass",
+        "detail": "CITATION.cff and AUTHORS.json both present",
+        "evidence": [
+          "CITATION.cff",
+          "AUTHORS.json"
+        ]
+      },
+      {
+        "name": "license",
+        "status": "pass",
+        "detail": "LICENSE file present",
+        "evidence": [
+          "LICENSE"
+        ]
+      }
+    ]
+  }
+]

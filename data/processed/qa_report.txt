@@ -1,0 +1,77 @@
+QA REPORT: reproducibility audit of evidence repositories
+============================================================
+
+Repositories audited: 5 evidence repos + reproflow itself
+Audit method: structural/file-presence checks against the 8-criterion
+checklist in docs/CODEBOOK.md; does not execute each repo's own pipeline.
+
+| Repository | packaging | tests | ci | provenance | stats_file | docs_set | citation_metadata | license | Score |
+|---|---|---|---|---|---|---|---|---|---|
+| icsprio | PASS | PASS | PASS | PARTIAL | PASS | PASS | PASS | PASS | 0.94 |
+| ong-ot-dataset | PARTIAL | PARTIAL | PARTIAL | PARTIAL | PASS | PASS | PASS | PASS | 0.75 |
+| pipeline-control-validation | PARTIAL | FAIL | FAIL | PARTIAL | PASS | PASS | PASS | PASS | 0.62 |
+| pqc-ot-crosswalk | FAIL | FAIL | FAIL | PARTIAL | PASS | PASS | PASS | PASS | 0.56 |
+| crosswalk-lookup | FAIL | FAIL | FAIL | PARTIAL | FAIL | PASS | PASS | PASS | 0.44 |
+| reproflow (this project) | PASS | PASS | PASS | PASS | PASS | PASS | PASS | PASS | 1.00 |
+
+Per-repository detail:
+
+-- icsprio (commit ef5ee3986a51) --
+  [PASS   ] packaging: installable package: pyproject.toml present
+  [PASS   ] tests: 12 test file(s) found
+  [PASS   ] ci: 1 workflow(s), at least one runs the test suite
+  [PARTIAL] provenance: data/raw/PROVENANCE.txt present but not fully conformant: none of 15852 record(s) match this module's key=value schema (filename=... | bytes=... | sha256=... | source_url=... | access_date=...); the ledger may use a different provenance convention
+  [PASS   ] stats_file: parseable, non-empty stats file at data/processed/stats.json
+  [PASS   ] docs_set: all 4 standard docs present
+  [PASS   ] citation_metadata: CITATION.cff and AUTHORS.json both present
+  [PASS   ] license: 2 license files (dual code/data licensing)
+
+-- ong-ot-dataset (commit acd2bda7505e) --
+  [PARTIAL] packaging: requirements.txt present but no pyproject.toml/setup.py: dependencies are pinned but the project is not installable as a package (no console entry point, no version).
+  [PARTIAL] tests: only 1 test file(s) found
+  [PARTIAL] ci: 2 workflow(s) present but none appear to invoke pytest/unittest (may automate publishing/metadata rather than testing)
+  [PARTIAL] provenance: data/raw/PROVENANCE.txt present but not fully conformant: none of 6 record(s) match this module's key=value schema (filename=... | bytes=... | sha256=... | source_url=... | access_date=...); the ledger may use a different provenance convention
+  [PASS   ] stats_file: parseable, non-empty stats file at report/stats.json
+  [PASS   ] docs_set: all 4 standard docs present
+  [PASS   ] citation_metadata: CITATION.cff and AUTHORS.json both present
+  [PASS   ] license: LICENSE file present
+
+-- pipeline-control-validation (commit ed5855c9ef77) --
+  [PARTIAL] packaging: requirements.txt present but no pyproject.toml/setup.py: dependencies are pinned but the project is not installable as a package (no console entry point, no version).
+  [FAIL   ] tests: no test_*.py or *_test.py files found
+  [FAIL   ] ci: no .github/workflows directory
+  [PARTIAL] provenance: data/raw/PROVENANCE.txt present but not fully conformant: none of 6 record(s) match this module's key=value schema (filename=... | bytes=... | sha256=... | source_url=... | access_date=...); the ledger may use a different provenance convention
+  [PASS   ] stats_file: parseable, non-empty stats file at paper/stats.json
+  [PASS   ] docs_set: all 4 standard docs present
+  [PASS   ] citation_metadata: CITATION.cff and AUTHORS.json both present
+  [PASS   ] license: LICENSE file present
+
+-- pqc-ot-crosswalk (commit 2e946a6e5fce) --
+  [FAIL   ] packaging: no pyproject.toml, setup.py, or requirements.txt found
+  [FAIL   ] tests: no test_*.py or *_test.py files found
+  [FAIL   ] ci: no .github/workflows directory
+  [PARTIAL] provenance: data/raw/PROVENANCE.txt present but not fully conformant: none of 25 record(s) match this module's key=value schema (filename=... | bytes=... | sha256=... | source_url=... | access_date=...); the ledger may use a different provenance convention
+  [PASS   ] stats_file: parseable, non-empty stats file at paper/stats.json
+  [PASS   ] docs_set: all 4 standard docs present
+  [PASS   ] citation_metadata: CITATION.cff and AUTHORS.json both present
+  [PASS   ] license: LICENSE file present
+
+-- crosswalk-lookup (commit 60ea8199b74a) --
+  [FAIL   ] packaging: no pyproject.toml, setup.py, or requirements.txt found
+  [FAIL   ] tests: no test_*.py or *_test.py files found
+  [FAIL   ] ci: no .github/workflows directory
+  [PARTIAL] provenance: data/raw/PROVENANCE.txt present but not fully conformant: none of 15 record(s) match this module's key=value schema (filename=... | bytes=... | sha256=... | source_url=... | access_date=...); the ledger may use a different provenance convention
+  [FAIL   ] stats_file: no stats.json found
+  [PASS   ] docs_set: all 4 standard docs present
+  [PASS   ] citation_metadata: CITATION.cff and AUTHORS.json both present
+  [PASS   ] license: LICENSE file present
+
+-- reproflow (this project) (commit unknown) --
+  [PASS   ] packaging: installable package: pyproject.toml present
+  [PASS   ] tests: 18 test file(s) found
+  [PASS   ] ci: 1 workflow(s), at least one runs the test suite
+  [PASS   ] provenance: data/raw/PROVENANCE.txt present and well-formed (5 record(s))
+  [PASS   ] stats_file: parseable, non-empty stats file at data/raw/evidence_repos/ong-ot-dataset/report/stats.json
+  [PASS   ] docs_set: all 4 standard docs present
+  [PASS   ] citation_metadata: CITATION.cff and AUTHORS.json both present
+  [PASS   ] license: LICENSE file present

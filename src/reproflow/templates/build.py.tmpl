@@ -1,0 +1,15 @@
+#!/usr/bin/env python3
+"""02_build.py — clean, harmonize, join, and compute. Writes to
+data/processed/ and produces the inputs 03_qa.py checks."""
+from pathlib import Path
+
+PROCESSED_DIR = Path(__file__).resolve().parents[1] / "data" / "processed"
+
+
+def main() -> None:
+    PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
+    raise NotImplementedError("Build your dataset/analysis here.")
+
+
+if __name__ == "__main__":
+    main()

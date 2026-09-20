@@ -1,0 +1,51 @@
+# {{project_name}}
+
+**Status:** DRAFT v0.1 (unverified) | **Maintainer:** {{author_name}}, {{author_orcid}} | **License:** code MIT, data CC BY 4.0
+
+{{description}}
+
+## What is here
+
+```
+code/       numbered scripts in run order (01_fetch -> 02_build -> 03_qa -> 04_figures)
+data/raw/   inputs as fetched, with PROVENANCE.txt
+data/processed/  outputs, with qa_report.txt and stats.json
+docs/       CODEBOOK, LIMITATIONS, VERIFY_CHECKLIST, NEXT_STEPS
+tests/      offline pytest suite
+```
+
+## Run it
+
+```
+pip install -e ".[dev]"
+python code/01_fetch.py
+python code/02_build.py
+python code/03_qa.py
+python code/04_figures.py
+pytest -q
+```
+
+A stranger should be able to run these from this README alone and reproduce `data/processed/` exactly.
+
+## Sources
+
+| Source | Vintage | License | Accessed |
+|---|---|---|---|
+| [name, URL] | [year] | [public domain / CC BY / terms] | [date] |
+
+## Limitations
+
+See `docs/LIMITATIONS.md` before using or citing anything here.
+
+## Citation
+
+See `CITATION.cff`. DOI: [pending first release]
+
+## Built with reproflow
+
+This project follows the reproducible-engineering framework in
+[reproflow](https://github.com/foikwuogu/reproflow): packaging via
+`pyproject.toml`, an offline pytest suite, a CI workflow that runs it,
+provenance logging for every fetch, and a publish gate
+(`reproflow gate check .`) that scans for draft stamps, unresolved
+verify-tags, placeholders, and secrets before release.

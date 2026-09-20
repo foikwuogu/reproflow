@@ -1,0 +1,40 @@
+{
+  "authors": [
+    {
+      "name": "Friday Ogochukwu Ikwuogu",
+      "orcid": "0009-0009-2222-1318",
+      "email": "Friday.ikwuogu@gmail.com",
+      "affiliation": "Independent Researcher, Odessa, Texas, USA",
+      "role": "lead",
+      "credit": [
+        "Conceptualization",
+        "Methodology",
+        "Software",
+        "Validation",
+        "Writing – original draft",
+        "Writing – review & editing"
+      ]
+    },
+    {
+      "name": "Abidemi Orimogunje",
+      "affiliation": "Electrical and Electronic Engineering Department, Redeemer's University, Ede, Osun State, Nigeria",
+      "email": "orimogunjea@run.edu.ng",
+      "role": "co-author",
+      "credit": ["Writing – review & editing"]
+    },
+    {
+      "name": "Eria Othieno Pinyi",
+      "affiliation": "Computer Science and Engineering Department, University of Fairfax, USA",
+      "email": "eriaothienopinyi@gmail.com",
+      "role": "co-author",
+      "credit": ["Writing – review & editing"]
+    },
+    {
+      "name": "David Mike-Ewewie",
+      "affiliation": "Computer Science Department, University of Texas Permian Basin, Odessa, Texas, USA",
+      "email": "mike_d63291@utpb.edu",
+      "role": "co-author",
+      "credit": ["Writing – review & editing"]
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "n_evidence_repos": 5,
+  "evidence_repo_names": [
+    "icsprio",
+    "ong-ot-dataset",
+    "pipeline-control-validation",
+    "pqc-ot-crosswalk",
+    "crosswalk-lookup"
+  ],
+  "scores_by_repo": {
+    "icsprio": 0.938,
+    "ong-ot-dataset": 0.75,
+    "pipeline-control-validation": 0.625,
+    "pqc-ot-crosswalk": 0.562,
+    "crosswalk-lookup": 0.438,
+    "reproflow (this project)": 1.0
+  },
+  "evidence_scores_by_repo": {
+    "icsprio": 0.938,
+    "ong-ot-dataset": 0.75,
+    "pipeline-control-validation": 0.625,
+    "pqc-ot-crosswalk": 0.562,
+    "crosswalk-lookup": 0.438
+  },
+  "mean_evidence_score": 0.663,
+  "min_evidence_score": 0.438,
+  "max_evidence_score": 0.938,
+  "reproflow_self_score": 1.0,
+  "criterion_pass_counts_among_evidence_repos": {
+    "packaging": 1,
+    "tests": 1,
+    "ci": 1,
+    "provenance": 0,
+    "stats_file": 4,
+    "docs_set": 5,
+    "citation_metadata": 5,
+    "license": 5
+  },
+  "n_criteria": 8,
+  "criteria_list": [
+    "packaging",
+    "tests",
+    "ci",
+    "provenance",
+    "stats_file",
+    "docs_set",
+    "citation_metadata",
+    "license"
+  ],
+  "fully_compliant_evidence_repos": [],
+  "least_compliant_evidence_repo": "crosswalk-lookup",
+  "most_compliant_evidence_repo": "icsprio"
+}

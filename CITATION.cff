@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "reproflow: A Reproducible Engineering Framework for Security-Relevant Data Pipelines"
+version: "0.1.0"
+date-released: "2026-09-20"
+authors:
+  - family-names: "Ikwuogu"
+    given-names: "Friday Ogochukwu"
+    orcid: "https://orcid.org/0009-0009-2222-1318"
+    affiliation: "Independent Researcher, Odessa, Texas, USA"
+  - family-names: "Orimogunje"
+    given-names: "Abidemi"
+    affiliation: "Electrical and Electronic Engineering Department, Redeemer's University, Ede, Osun State, Nigeria"
+  - family-names: "Pinyi"
+    given-names: "Eria Othieno"
+    affiliation: "Computer Science and Engineering Department, University of Fairfax, USA"
+  - family-names: "Mike-Ewewie"
+    given-names: "David"
+    affiliation: "Computer Science Department, University of Texas Permian Basin, Odessa, Texas, USA"
+license: MIT
+repository-code: "https://github.com/foikwuogu/reproflow"
+doi: "10.5281/zenodo.pending"
+keywords:
+  - reproducibility
+  - research-software
+  - data-pipeline
+  - provenance
+  - continuous-integration
+  - open-science
+  - critical-infrastructure-security
