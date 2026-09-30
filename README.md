@@ -114,3 +114,7 @@ See `docs/LIMITATIONS.md` before using or citing anything here.
 ## Citation
 
 See `CITATION.cff`. DOI: [10.5281/zenodo.22865360](https://doi.org/10.5281/zenodo.22865360).
+
+## AI assistance
+
+**AI assistance:** AI coding tools (Claude, Anthropic) were used for code scaffolding, test fixtures, and documentation drafting. The problem definition, methodology, classification rules, mappings, and analytic decisions are the author's own.

@@ -22,7 +22,7 @@ confirm `reproflow gate check .` reports no findings.
    Name it `reproflow` (matches `pyproject.toml`, `CITATION.cff`, and every
    URL already written into the docs). Leave it empty — this project
    already has a README.
-2. From inside `/home/claude/reproflow` (or wherever you've copied this
+2. From the repository root (or wherever you've copied this
    project to your own machine):
    ```bash
    git init -b main
